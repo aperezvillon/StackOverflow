@@ -1,0 +1,4 @@
+api_get_topics:
+  path: /api/v1/topics
+  methods: [GET]
+  controller: 'App\StackOverflow\UI\HTTP\Rest\Controller\GetTopicController'

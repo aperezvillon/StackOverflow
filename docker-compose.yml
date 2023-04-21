@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+
+  stack_overflow_php:
+    build: etc/docker/php-fpm
+    container_name: stack_overflow_php
+    ports:
+      - 9000:9000
+    volumes:
+      - ./:/var/www/app:cached
+      - ./etc/docker/php-fpm/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
+    entrypoint: /var/www/app/etc/docker/php-fpm/run.sh
+    networks:
+      - app-network
+
+  stack_overflow_nginx:
+    image: nginx:1.24
+    container_name: stack_overflow_nginx
+    environment:
+      TZ: Europe/Madrid
+    volumes:
+      - ./:/var/www/app
+      - ./etc/docker/nginx/symfony.conf:/etc/nginx/conf.d/symfony.conf
+      - ./etc/docker/nginx/symfonyssl.conf:/etc/nginx/conf.d/symfonyssl.conf
+      - ./etc/docker/nginx/cert:/etc/nginx/cert
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - stack_overflow_php
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

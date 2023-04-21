@@ -1,0 +1,2 @@
+stackOverflow:
+  resource: ../src/StackOverflow/Infrastructure/Symfony/config/routes.yaml
