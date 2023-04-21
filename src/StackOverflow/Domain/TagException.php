@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Proposal\Domain\Service\Exception;
+namespace App\StackOverflow\Domain;
 
 use App\Shared\Domain\Exception\WarningException;
 

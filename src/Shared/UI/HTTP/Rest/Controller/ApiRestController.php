@@ -6,7 +6,6 @@ namespace App\Shared\UI\HTTP\Rest\Controller;
 
 use App\Shared\Domain\Bus\Query\QueryBusInterface;
 use App\Shared\Domain\Bus\Query\QueryInterface;
-use App\Shared\Infrastructure\Service\JsonApi\JsonApiResponseConverterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

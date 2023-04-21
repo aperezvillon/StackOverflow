@@ -30,3 +30,8 @@ PARAMETERS:
 
 NOTE: To constrain questions returned to those with a set of tags, use the tagged parameter with a semi-colon delimited list of tags. 
 ```
+
+## Execute Tests
+````
+./vendor/bin/phpunit tests
+````
